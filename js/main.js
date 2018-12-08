@@ -57,7 +57,7 @@ function register(){
 		login.style.display = "none"
 		document.querySelector(".register").style.display = "flex"
 		document.querySelector(".box-login").classList.add("box-animation")
-		btnRegister.classList.add("btn-register-animation")*/
+		btnRegister.classList.add("btn-register-animation")
 	},1000);
 }
 
