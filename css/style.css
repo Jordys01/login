@@ -25,11 +25,18 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
 	padding: 0px;
 	background: white;
+}
+
+.box-login>div, .box-login>input{
+	position: relative;
+	opacity: 0;
+	left: -100%;
 }
 
 .input{
@@ -46,6 +53,7 @@
 	width: 270px;
 	margin-top: 25px;
 	color: white;
+	cursor: pointer;
 }
 
 .input:focus{
@@ -112,6 +120,14 @@
 	animation: 1s fadeOut forwards;
 }
 
+.width-animation{
+	animation: 1s widthAnimation forwards;
+}
+
+.left-animation{
+	animation: 1s leftAnimation forwards;
+}
+
 @keyframes boxAnimation{
 	from{
 		width: 0px;
@@ -161,5 +177,31 @@
 
 	to{
 		opacity: 0;
+	}
+}
+
+@keyframes widthAnimation{
+	from{
+		width: 4px;
+		height: 250px;
+		padding: 0px;
+	}
+
+	to{
+		width: 400px;
+		height: 200px;
+		padding: 50px;
+	}
+}
+
+@keyframes leftAnimation{
+	from{
+		opacity: 0;
+		left: -100%;
+	}
+
+	to{
+		opacity: 1;
+		left: 0%;
 	}
 }
