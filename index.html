@@ -3,8 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-	
+	<div class="login-container">
+		<div class="login">
+			<div class="box-login">
+				<input type="text" id="userLogin" class="input" placeholder="User or email">
+				<input type="password" id="email" class="input" placeholder="Password">
+				<input type="button" id="submit" class="btn btn-login" value="Login">
+			</div>
+		</div>
+		<div class="register">
+			<div class="box-register">
+				<input type="text" id="userReg" class="input" placeholder="User">
+				<input type="text" id="emailReg" class="input" placeholder="email">
+				<input type="password" id="pass" class="input" placeholder="Password">
+				<input type="button" id="submitReg" class="btn btn-login" value="Register">
+			</div>
+		</div>
+		<div class="button-login">
+			<i class="fas fa-user"></i>
+			<span>Login</span>
+		</div>
+		<div class="button-register">
+			<i class="fas fa-user-plus"></i>
+			<span>Register</span>
+		</div>
+	</div>
+	<script src="./js/main.js"></script>
 </body>
 </html>
