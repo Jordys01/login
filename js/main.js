@@ -11,18 +11,10 @@ function login(){
 	let btnLogin = document.querySelector(".button-login"),
 		btnRegister = document.querySelector(".button-register"),
 		register = document.querySelector(".register"),
-		login = document.querySelector(".login"),
-		div = document.querySelectorAll(".box-login>div"),
-		input = document.querySelectorAll(".box-login>input")
+		login = document.querySelector(".login")
 
-	for (let i = 0; i < div.length; i++) {
-		div[i].style.opacity = "0"
-		div[i].classList.remove("width-bar-animation")
-	}
-
-	for (let i = 0; i < input.length; i++) {
-		input[i].style.opacity = "0"
-	}
+	animationInputLogin("remove");
+	animationBarLogin("remove");
 
 	document.querySelector(".box-login").style.padding = "0px"
 	login.classList.remove("fade-out")
@@ -49,21 +41,26 @@ function login(){
 	},2000);
 
 	setTimeout(()=>{		
-		animationInputLogin();
-	},3000);
+		animationInputLogin("add");
+	},2000);
 
 	setTimeout(()=>{		
-		animationBarLogin();
-	},4000);
+		animationBarLogin("add");
+	},2000);
 	
 } 
 
 function register(){
 	let btnRegister = document.querySelector(".button-register"),
 		btnLogin = document.querySelector(".button-login"),
+		register = document.querySelector(".register"),
 		login = document.querySelector(".login")
 
+	animationInputRegister("remove");
+	animationBarRegister("remove");
+
 	login.classList.add("fade-out")
+	register.classList.remove("fade-out")
 	login.style.display = "none"
 	btnRegister.classList.remove("btn-register-animation")
 	btnRegister.classList.add("button-register-animation")
@@ -74,6 +71,8 @@ function register(){
 		btnRegister.style.display = "none"
 		login.style.display = "none"
 		btnLogin.style.display = "flex"
+		btnLogin.querySelector("i").classList.remove("fade-out")
+		btnLogin.querySelector("span").classList.remove("fade-out")
 		document.querySelector(".register").style.display = "flex"
 		document.querySelector(".box-register").classList.add("box-animation-register")
 		btnLogin.classList.add("btn-login-animation")
@@ -84,49 +83,73 @@ function register(){
 	},2000);
 
 	setTimeout(()=>{		
-		animationInputRegister();
-	},3000);
+		animationInputRegister("add");
+	},2000);
 
 	setTimeout(()=>{		
-		animationBarRegister();
-		removeStyleRegister(btnRegister)
-	},4000);
+		animationBarRegister("add");
+	},2000);
 }
 
-function removeStyleRegister(btnRegister){
-	btnRegister.style.display = "none"
-	btnRegister.classList.remove("btn-register-animation")
-	btnRegister.classList.remove("button-register-animation")
-}
-
-function animationInputLogin(){
+function animationInputLogin(type){
 	let input = document.querySelectorAll(".box-login>input")
 
-	for (let i = 0; i < input.length; i++) {
-		input[i].classList.add("left-animation")
+	if(type == "remove"){
+		for (let i = 0; i < input.length; i++) {	
+			input[i].classList.remove("left-animation")
+			input[i].style.opacity = "0"
+			input[i].style.left = "-100%"
+		}
+	}else if("add"){
+		for (let i = 0; i < input.length; i++) {	
+			input[i].classList.add("left-animation")
+		}
 	}
 }
 
-function animationBarLogin(){
+function animationBarLogin(type){
 	let div = document.querySelectorAll(".box-login>div")
 
-	for (let i = 0; i < div.length; i++) {	
-		div[i].classList.add("width-bar-animation")
+	if(type == "remove"){
+		for (let i = 0; i < div.length; i++) {	
+			div[i].classList.remove("width-bar-animation")
+			div[i].style.width = "0"
+		}
+	}else if("add"){
+		for (let i = 0; i < div.length; i++) {	
+			div[i].classList.add("width-bar-animation")
+		}
 	}
+	
 }
 
-function animationInputRegister(){
+function animationInputRegister(type){
 	let input = document.querySelectorAll(".box-register>input")
 
-	for (let i = 0; i < input.length; i++) {
-		input[i].classList.add("left-animation")
+	if(type == "remove"){
+		for (let i = 0; i < input.length; i++) {	
+			input[i].classList.remove("left-animation")
+			input[i].style.opacity = "0"
+			input[i].style.left = "-100%"
+		}
+	}else if("add"){
+		for (let i = 0; i < input.length; i++) {	
+			input[i].classList.add("left-animation")
+		}
 	}
 }
 
-function animationBarRegister(){
+function animationBarRegister(type){
 	let div = document.querySelectorAll(".box-register>div")
 
-	for (let i = 0; i < div.length; i++) {	
-		div[i].classList.add("width-bar-animation")
+	if(type == "remove"){
+		for (let i = 0; i < div.length; i++) {	
+			div[i].classList.remove("width-bar-animation")
+			div[i].style.width = "0"
+		}
+	}else if("add"){
+		for (let i = 0; i < div.length; i++) {	
+			div[i].classList.add("width-bar-animation")
+		}
 	}
 }
