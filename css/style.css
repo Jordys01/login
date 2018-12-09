@@ -25,11 +25,17 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 200px;
-	width: 400px;
+	height: 0px;
+	width: 0px;
 	overflow: hidden;
-	padding: 50px;
+	padding: 0px;
 	background: white;
+}
+
+.box-login-default{
+	height: 250px;
+	width: 400px;
+	padding: 50px;
 }
 
 .box-login>div, .box-login>input{
@@ -123,6 +129,12 @@
 	overflow: hidden;
 	padding: 0px;
 	background: #18b4ff;
+}
+
+.box-register-default{
+	height: 250px;
+	width: 400px;
+	padding: 50px;
 }
 
 .box-register>input{
@@ -265,20 +277,6 @@
 	}
 }
 
-@keyframes boxAnimationRegister{
-	from{
-		opacity: 0;
-		width: 0px;
-		height: 0px;
-	}
-
-	to{
-		opacity: 1;
-		height: 250px;
-		width: 5px;
-	}
-}
-
 @keyframes btnLoginAnimation{
 	from{
 		bottom: -20px;
@@ -379,11 +377,13 @@
 
 @keyframes buttonRegisterAnimation{
 	from{
+		opacity: 0;
 		top: -200px;
 		left: -200px;
 	}
 
 	to{
+		opacity: 1;
 		top: -40px;
 		left: -40px;
 	}
@@ -396,8 +396,8 @@
 	}
 
 	to{
-		bottom: -40px;
-		right: -40px;
+		bottom: -20px;
+		right: -20px;
 	}
 }
 
