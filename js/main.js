@@ -28,32 +28,31 @@ document.querySelector(".button-register").onclick = () =>{
 
 function login(){
 	let btnLogin = document.querySelector(".button-login"),
-		btnRegister = document.querySelector(".button-register"),
+		btnRegister = document.querySelector(".content-register-btn"),
+		cntLogin = document.querySelector(".content-login-btn"),
 		box_login = document.querySelector(".box-login"),
 		login = document.querySelector(".login"),
 		register = document.querySelector(".register")
 
 	login.classList.remove("fade-out")
+	cntLogin.style.display = "flex"
 	register.classList.add("fade-out")
-	btnLogin.classList.add("button-login-animation")
-	btnLogin.querySelector("i").classList.add("fade-out")
-	btnLogin.querySelector("span").classList.add("fade-out")
+	cntLogin.classList.add("button-login-animation")
 
 	setTimeout(()=>{
-		register.style.display = "none"
+		cntLogin.style.display = "none"
 		document.querySelector(".box-register-default").classList.remove("box-register-default")
-	},500)
-
-	setTimeout(()=>{
-		btnLogin.style.display = "none"
-		login.style.display = "flex"
-		btnRegister.style.opacity = "0"
-		btnRegister.style.display = "flex"
-		btnRegister.classList.add("btn-register-animation")
 		box_login.classList.add("box-animation")
+		register.style.display = "none"
+		register.classList.remove("fade-out")
+		btnRegister.style.display = "flex"
+		btnRegister.querySelector("i").classList.remove("fade-out")
+		btnRegister.classList.add("btn-register-animation")
+		login.style.display = "flex"
 	},1000);
 
 	setTimeout(()=>{
+		btnRegister.classList.remove("btn-register-animation")
 		document.querySelector(".box-login").classList.add("width-animation")
 	},2000);
 
@@ -66,47 +65,44 @@ function login(){
 	},4000);
 
 	setTimeout(()=>{
+		ejecutLogin = true
 		ejecutRegister = true
-		document.querySelector(".box-login").classList.add("box-login-default")
-		btnRegister.style.opacity = "1"
-		btnLogin.classList.remove("button-login-animation")
-		btnLogin.querySelector("i").classList.remove("fade-out")
-		btnLogin.querySelector("span").classList.remove("fade-out")
-		btnRegister.classList.remove("btn-register-animation")
+		box_login.classList.add("box-login-default")
+		box_login.classList.remove("box-animation")
+		box_login.classList.remove("width-animation")
+		btnLogin.classList.remove("btn-login-animation")
+		cntLogin.classList.remove("button-login-animation")
 	},5000)
 	
 } 
 
 function register(){
 	let btnRegister = document.querySelector(".button-register"),
-		btnLogin = document.querySelector(".button-login"),
+		content_register_btn = document.querySelector(".content-register-btn"),
+		btnLogin = document.querySelector(".content-login-btn"),
 		register = document.querySelector(".register"),
 		box_register = document.querySelector(".box-register"),
 		login = document.querySelector(".login")
-	
+
 	register.classList.remove("fade-out")
+	content_register_btn.style.display = "flex"
 	login.classList.add("fade-out")
-	btnRegister.classList.add("button-register-animation")
-	btnRegister.querySelector("i").classList.add("fade-out")
-	btnRegister.querySelector("span").classList.add("fade-out")
+	content_register_btn.classList.add("button-register-animation")
 
 	setTimeout(()=>{
-		login.style.display = "none"
+		content_register_btn.style.display = "none"
 		document.querySelector(".box-login-default").classList.remove("box-login-default")
-	},500)
-
-	setTimeout(()=>{
-		btnRegister.style.display = "none"
+		box_register.classList.add("box-animation")
+		login.style.display = "none"
+		login.classList.remove("fade-out")
 		btnLogin.style.display = "flex"
 		btnLogin.querySelector("i").classList.remove("fade-out")
-		btnLogin.querySelector("span").classList.remove("fade-out")
 		btnLogin.classList.add("btn-login-animation")
-
-		document.querySelector(".register").style.display = "flex"
-		box_register.classList.add("box-animation")
+		register.style.display = "flex"
 	},1000);
 
 	setTimeout(()=>{
+		
 		box_register.classList.add("width-animation")
 	},2000);
 
@@ -120,20 +116,19 @@ function register(){
 
 	setTimeout(()=>{		
 		ejecutLogin = true
+		ejecutLogin = true
 		box_register.classList.add("box-register-default")
 		box_register.classList.remove("box-animation")
 		box_register.classList.remove("width-animation")
 		btnLogin.classList.remove("btn-login-animation")
-		btnRegister.classList.remove("button-register-animation")
-		btnRegister.querySelector("i").classList.remove("fade-out")
-		btnRegister.querySelector("span").classList.remove("fade-out")
+		content_register_btn.classList.remove("button-register-animation")
 	},4500);
 }
 
 
 
 function animationInputLogin(type){
-	let input = document.querySelectorAll(".box-login>input")
+	let input = document.querySelectorAll(".box-login>div>input")
 
 	if(type == "remove"){
 		for (let i = 0; i < input.length; i++) {	
@@ -149,7 +144,7 @@ function animationInputLogin(type){
 }
 
 function animationBarLogin(type){
-	let div = document.querySelectorAll(".box-login>div")
+	let div = document.querySelectorAll(".box-login>div>div")
 
 	if(type == "remove"){
 		for (let i = 0; i < div.length; i++) {	
@@ -165,8 +160,8 @@ function animationBarLogin(type){
 }
 
 function animationInputRegister(type){
-	let input = document.querySelectorAll(".box-register>input")
-
+	let input = document.querySelectorAll(".box-register>div>input")
+	console.log(input)
 	if(type == "remove"){
 		for (let i = 0; i < input.length; i++) {	
 			input[i].classList.remove("left-animation")
@@ -181,7 +176,7 @@ function animationInputRegister(type){
 }
 
 function animationBarRegister(type){
-	let div = document.querySelectorAll(".box-register>div")
+	let div = document.querySelectorAll(".box-register>div>div")
 
 	if(type == "remove"){
 		for (let i = 0; i < div.length; i++) {	
