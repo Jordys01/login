@@ -175,7 +175,6 @@ function animationBarLogin(type){
 
 function animationInputRegister(type){
 	let input = document.querySelectorAll(".box-register .form-group")
-	console.log(input)
 	if(type == "remove"){
 		for (let i = 0; i < input.length; i++) {	
 			input[i].classList.remove("left-animation")
@@ -195,7 +194,7 @@ function animationBarRegister(type){
 
 	if(type == "remove"){
 		for (let i = 0; i < div.length; i++) {	
-			icon[i].classList.add("top-animation")
+			icon[i].classList.remove("top-animation")
 			div[i].classList.remove("width-bar-animation")
 			div[i].style.width = "0"
 		}
