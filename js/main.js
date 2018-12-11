@@ -1,7 +1,8 @@
 
 var init = true,
 	ejecutRegister = true,
-	ejecutLogin = true;
+	ejecutLogin = true,
+	ejec = true;
 
 document.querySelector(".button-login").onclick = () =>{
 	animationBarRegister("remove");
@@ -11,6 +12,11 @@ document.querySelector(".button-login").onclick = () =>{
 		ejecutLogin = false
 		ejecutRegister = false
 		login();
+	}
+
+	if(ejec){
+		ejec = false
+		document.querySelector(".login").classList.remove("tmp")
 	}
 }
 
@@ -22,6 +28,11 @@ document.querySelector(".button-register").onclick = () =>{
 		ejecutRegister = false
 		ejecutLogin = false
 		register();
+	}
+
+	if(ejec){
+		ejec = false
+		document.querySelector(".login").classList.remove("tmp")
 	}
 	
 }
@@ -128,7 +139,7 @@ function register(){
 
 
 function animationInputLogin(type){
-	let input = document.querySelectorAll(".box-login>div>input")
+	let input = document.querySelectorAll(".box-login .form-group")
 
 	if(type == "remove"){
 		for (let i = 0; i < input.length; i++) {	
@@ -144,15 +155,18 @@ function animationInputLogin(type){
 }
 
 function animationBarLogin(type){
-	let div = document.querySelectorAll(".box-login>div>div")
+	let div = document.querySelectorAll(".box-login .cont-input div"),
+		icon = document.querySelectorAll(".box-login .form-group .icon")
 
 	if(type == "remove"){
 		for (let i = 0; i < div.length; i++) {	
+			icon[i].classList.remove("top-animation")
 			div[i].classList.remove("width-bar-animation")
 			div[i].style.width = "0"
 		}
 	}else if("add"){
 		for (let i = 0; i < div.length; i++) {	
+			icon[i].classList.add("top-animation")
 			div[i].classList.add("width-bar-animation")
 		}
 	}
@@ -160,7 +174,7 @@ function animationBarLogin(type){
 }
 
 function animationInputRegister(type){
-	let input = document.querySelectorAll(".box-register>div>input")
+	let input = document.querySelectorAll(".box-register .form-group")
 	console.log(input)
 	if(type == "remove"){
 		for (let i = 0; i < input.length; i++) {	
@@ -176,15 +190,18 @@ function animationInputRegister(type){
 }
 
 function animationBarRegister(type){
-	let div = document.querySelectorAll(".box-register>div>div")
+	let div = document.querySelectorAll(".box-register .cont-input div"),
+		icon = document.querySelectorAll(".box-register .form-group .icon")
 
 	if(type == "remove"){
 		for (let i = 0; i < div.length; i++) {	
+			icon[i].classList.add("top-animation")
 			div[i].classList.remove("width-bar-animation")
 			div[i].style.width = "0"
 		}
 	}else if("add"){
 		for (let i = 0; i < div.length; i++) {	
+			icon[i].classList.add("top-animation")
 			div[i].classList.add("width-bar-animation")
 		}
 	}

@@ -38,14 +38,6 @@
 	padding: 50px;
 }
 
-.box-login>div>div, .box-login>div>input{
-	position: relative;
-	opacity: 1;
-}
-
-.box-login>div>input{
-	left: 0%;
-}
 
 .input{
 	border:none;
@@ -148,15 +140,6 @@
 	padding: 50px;
 }
 
-.box-register>div>input{
-	position: relative;
-	left: -100%;
-}
-
-.box-register>div>div, .box-register>div>input{
-	opacity: 0;
-}
-
 .input-register{
 	background: none;
 	color:white;
@@ -235,6 +218,45 @@
 	font-size: 60px;
 }
 
+.form-group {
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.login .form-group{
+	opacity: 1;
+}
+
+.icon{
+	position: absolute;
+	left: -30px;
+    top: 4px;
+    color: rgba(0,0,0,.5);
+}
+
+.tmp .icon{
+	top: 13px;
+}
+
+.icon-register{
+	color: white;
+}
+
+.icon>i {
+    font-size: 25px;
+}
+
+.cont-input>div{
+	width: 0;
+}
+
+.login .border{
+	width: 270px;
+} 
+
 /*ANIMATIONS*/
 .box-animation{
 	animation: 1s boxAnimation forwards;
@@ -278,6 +300,10 @@
 
 .btn-login-animation{
 	animation: 1s buttonLoginAnimation forwards;
+}
+
+.top-animation{
+	animation: .5s topAnimation forwards;
 }
 
 
@@ -408,6 +434,16 @@
 		opacity: 1;
 		bottom: 0px;
 		right: 0px;
+	}
+}
+
+@keyframes topAnimation{
+	from{
+		top: 4px;
+	}
+
+	to{
+		top: 13px;
 	}
 }
 
